@@ -1,8 +1,8 @@
 import 'dart:math';
 
+import 'package:expenses_tracker/screens/home/views/main_screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -51,6 +51,7 @@ class HomeScreen extends StatelessWidget {
           child: const Icon(CupertinoIcons.add),
         ),
       ),
+      body: MainScreen(),
     );
   }
 }
