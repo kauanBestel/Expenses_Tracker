@@ -84,10 +84,10 @@ class MainScreen extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const Column(
+            child: Column(
               children: [
                 Text(
-                  "total balance",
+                  "saldo total",
                   style: TextStyle(fontSize: 25),
                 ),
                 Text(
@@ -97,7 +97,15 @@ class MainScreen extends StatelessWidget {
                 Row(
                   children: [
                     Row(
-                      children: [],
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            border: 
+                           ),
+                        )
+                      ],
                     )
                   ],
                 )
