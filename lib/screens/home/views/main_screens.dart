@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:expenses_tracker/data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,7 +43,7 @@ class MainScreen extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "welcome",
+                        "Bem vindo",
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -235,7 +236,7 @@ class MainScreen extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 3,
+              itemCount: TransactionsData.length,
               itemBuilder: (context, int i) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16.0),
@@ -247,25 +248,60 @@ class MainScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.yellow,
-                              shape: BoxShape.circle,
-                            ),
+                          Row(
+                            children: [
+                              Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: TransactionsData[i]['color'],
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  (TransactionsData[i]['icon'])
+                                ],
+                              ),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text(
+                                TransactionsData[i]['name'],
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text(
-                            "fond",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Theme.of(context).colorScheme.outline,
-                                fontWeight: FontWeight.w400),
-                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                TransactionsData[i]['totalAmount'],
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                TransactionsData[i]['date'],
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        Theme.of(context).colorScheme.outline,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
