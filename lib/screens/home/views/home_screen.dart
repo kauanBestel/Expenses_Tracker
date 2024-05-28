@@ -14,12 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  var widgetList = [
-    MainScreen(),
-    StatScreen(),
-  ];
-
   int index = 0;
+   late Color selectedItem = Colors.blue;
+  Color unselectedItem = Colors.grey;
+
 
 
   @override
@@ -34,19 +32,22 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: (value){
             setState(() {
               index = value;
-            });
+            },);
           },
-          backgroundColor: Colors.white,
+         
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          items: const [
+          items:  [
             BottomNavigationBarItem(
                 icon: Icon(
                   CupertinoIcons.home,
+                  color: index == 1 ? selectedItem : unselectedItem,
                 ),
                 label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.graph_circle), label: "metrics"),
+                icon: Icon(CupertinoIcons.graph_square_fill,
+                                  color: index == 0 ? selectedItem : unselectedItem,
+), label: "metrics"),
           ],
         ),
       ),
