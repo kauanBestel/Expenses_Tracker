@@ -6,15 +6,15 @@ class MyAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       title: 'expense tracker',
       theme: ThemeData(
         colorScheme: ColorScheme.light(
             background: Colors.grey.shade200,
             onBackground: Colors.black,
             primary: Color(0xFF00B2E7),
-            secondary: Color(0XFFE064F7),
-            tertiary: Color(0XFFFF8D6C),
+            secondary: Color(0XFFE064F7), 
+            tertiary: Color(0XFFFF8D6d),
             outline: Colors.grey.shade400),
       ),
       home: HomeScreen(),
